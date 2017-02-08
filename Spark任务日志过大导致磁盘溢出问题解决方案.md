@@ -7,7 +7,7 @@
 
 #### **二 解决方案**
 ##### **2.1 解决思路**
-针对该问题，Spark官网给出了解决方案：![Alt text](./1486344768190.png)
+针对该问题，Spark官网给出了解决方案：![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020801.png)
 在此基础上，结合平台Spark组件部署实际情况，制定以下方案：
 - spark yarn contanier（包括executor和driver进程）单独使用一套日志机制，采用Rolling模式滚动删除，保留最新的5G日志数据：单个日志文件最大1G，最多保留5个，开启滚动删除。
 - 业务用户在应用代码输出的调试信息重定向至log4j日志中，限制单个文件大小并应用滚动删除机制。
