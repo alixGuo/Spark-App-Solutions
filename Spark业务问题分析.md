@@ -16,10 +16,10 @@
 spark任务夯住，driver最后一条日志：  
 ![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121220.JPG)  
 
-> **解决步骤**：通过stages页面查看stage信息，![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121205.png)
-看到stager id1夯了15.6个小时，查看stageid1的任务信息：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121206.png)
-看到shuffle数据量并不大，GC达到2.8小时，至此考虑业务代码存在逻辑的问题，需查看堆栈信息进一步确定。下一步查看stage任务的details：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121207.png)
-看到主函数。去executor页面找到夯住的executor所在的节点：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121208.png)去节点查看executor进程的堆栈信息，通过appid找到executor进程号：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121209.png)
+> **解决步骤**：通过stages页面查看stage信息，![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121205.png)
+看到stager id1夯了15.6个小时，查看stageid1的任务信息：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121206.png)
+看到shuffle数据量并不大，GC达到2.8小时，至此考虑业务代码存在逻辑的问题，需查看堆栈信息进一步确定。下一步查看stage任务的details：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121207.png)
+看到主函数。去executor页面找到夯住的executor所在的节点：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121208.png)去节点查看executor进程的堆栈信息，通过appid找到executor进程号：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121209.png)
 通过进程号和主函数名查看堆栈信息：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121210.png)
 找到业务逻辑代码详情，协助业务应用解决：
 review业务代码后，发现map中字符串拼接分割处理太多，而且在map之前没有做filter操作。导致大量无关数据也经过了逻辑运算。
