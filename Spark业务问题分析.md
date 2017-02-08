@@ -14,7 +14,7 @@
 ### 计算停滞  
 #### 1. Spark 任务夯住超过10个小时。  
 spark任务夯住，driver最后一条日志：  
-![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121220.png)  
+![Alt text](https://github.com/alixGuo/Resources/blob/master/2016/201612/2016121220.png)  
 
 > **解决步骤**：通过stages页面查看stage信息，![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121205.png)
 看到stager id1夯了15.6个小时，查看stageid1的任务信息：![Alt text](https://github.com/alixGuo/Resources/blob/master/2016121206.png)
