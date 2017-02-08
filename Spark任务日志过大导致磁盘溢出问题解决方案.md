@@ -25,7 +25,9 @@
 ![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020802.png)
 
 文件放置在$SPARK_HOME/conf/yarn-contanier-log4j-conf/路径下：
-![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020804.png)
+![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020803.png)
 
 spark-defaults.conf修改配置如下：
-![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020803.png)
+![Alt text](https://github.com/alixGuo/Resources/blob/master/2017/201702/2017020804.png)
+
+![代码patch](https://github.com/alixGuo/Resources/blob/master/2017/201702/redirectSystemOutAndErrToLog.patch)
