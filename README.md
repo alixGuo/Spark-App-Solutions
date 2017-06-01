@@ -14,6 +14,6 @@
 ### [Spark-Sql查询数据不存在hive分区表报错“Input path does not exist”问题](https://issues.apache.org/jira/browse/SPARK-15044) 
 从Spark-2.1.0版本开始，设置spark.sql.hive.verifyPartitionPath=true。如果是Spark-1.5.2以上存在问题的版本，可以在源码org/apache/spark/rdd/HadoopRDD.scala的getPartitions函数中捕获getSplits抛出的异常。  
 
-### Spark Streaming任务kafka.common.OffsetOutOfRangeException问题  
+### [Spark Streaming任务kafka.common.OffsetOutOfRangeException问题](https://github.com/alixGuo/Spark-App-Solutions/blob/master/Spark%20Streaming%E4%BB%BB%E5%8A%A1kafka.common.OffsetOutOfRangeException%E9%97%AE%E9%A2%98)  
 有用户反馈SSMP平台准实时计算任务出现kafka.common.OffsetOutOfRangeException问题，分析过程记录一下  
 
